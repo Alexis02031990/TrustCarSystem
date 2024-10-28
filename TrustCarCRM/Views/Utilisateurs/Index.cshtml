@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TrustCarCRM.Models.Utilisateur>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom_Utilisateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom_Utilisateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_Utilisateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephone_Utilisateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password_Utilisateur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_Utilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom_Utilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_Utilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone_Utilisateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password_Utilisateur)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UtilisateurId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UtilisateurId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UtilisateurId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

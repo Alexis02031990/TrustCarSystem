@@ -1,0 +1,59 @@
+﻿@model IEnumerable<TrustCarCRM.Models.Historique>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TableModifiee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Enregistrement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypeModification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateModification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UtilisateurHistoriques)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TableModifiee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Enregistrement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeModification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UtilisateurHistoriques.UtilisateurId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HistoriqueId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HistoriqueId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HistoriqueId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

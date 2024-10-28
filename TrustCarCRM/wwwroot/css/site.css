@@ -1,0 +1,114 @@
+/* Définir la structure de la page avec flexbox */
+html, body {
+    height: 100%; /* S'assurer que le body prend toute la hauteur de la page */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Assurer que le contenu prend tout l'espace disponible */
+#mainContent {
+    flex: 1;
+    margin-left: 260px;
+    padding: 20px;
+    min-height: calc(100vh - 100px); /* Ajustement pour que le contenu prenne l'espace */
+    overflow: auto; /* Pour gérer le défilement du contenu sans chevauchement */
+    padding-bottom: 100px; /* Ajouter un espace en bas pour le footer */
+}
+
+/* Assurer que le footer est toujours en bas, sans chevauchement */
+footer {
+    background: black;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin-top: auto; /* Pousse le footer vers le bas */
+    z-index: 1; /* S'assurer que le footer ne chevauche pas le contenu */
+}
+
+
+/* Animation pour le dégradé du panel du dashboard */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, darkred, darkblue);
+    }
+
+    25% {
+        background: linear-gradient(45deg, darkblue, darkgreen);
+    }
+
+    50% {
+        background: linear-gradient(45deg, indigo, black);
+    }
+
+    100% {
+        background: linear-gradient(45deg, darkred, darkblue);
+    }
+}
+
+/* Styles pour le panel du dashboard à gauche */
+#dashboardPanel {
+    background: linear-gradient(45deg, darkred, darkblue);
+    color: white;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    font-size: 20px; /* Taille ajustée */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Remonter les éléments vers le haut */
+    align-items: flex-start; /* Aligner les éléments à gauche */
+    animation: gradientAnimation 300s ease infinite; /* Animation du dégradé de couleur */
+    z-index: 2; /* Toujours en arrière-plan, sous le contenu principal */
+}
+
+/* Styles pour la navbar avec dégradé inversé */
+.navbar {
+    background: linear-gradient(45deg, darkred, darkblue);
+    margin-left: 250px;
+    color: white;
+    text-align: center;
+    animation: gradientAnimation 120s ease infinite;
+}
+
+    /* Couleurs pour la navbar et le footer */
+    .navbar .nav-link, .navbar .navbar-brand, .footer {
+        color: white !important;
+        text-align: center;
+    }
+
+/* Centrer le titre et aligner le bouton de connexion à droite dans la navbar */
+.navbar-nav-center {
+    margin: auto;
+}
+
+.navbar-nav-right {
+    margin-left: auto;
+}
+
+/* Styles pour les icônes et le texte du dashboard */
+.nav-item {
+    margin-bottom: 15px; /* Espacement entre les éléments */
+}
+
+.nav-link i {
+    margin-right: 10px; /* Espacement entre l'icône et le texte */
+}
+
+.menu-icon {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+h1, .btn, .back {
+    text-align: center;
+}
